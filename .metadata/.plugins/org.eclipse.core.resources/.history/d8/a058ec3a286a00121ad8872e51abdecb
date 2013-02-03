@@ -1,0 +1,29 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include "tinyxml.h"
+
+//main function
+int main(int argc, char *argv[])
+{
+	TiXmlDocument *doc = new TiXmlDocument();
+	doc->LoadFile("huo.xml");
+
+	if (doc->Error())
+	{
+		fprintf(stdout,"huo.xml load failure\n");
+		 exit(EXIT_FAILURE);
+	}
+
+	TiXmlHandle dochandle(doc);
+	TiXmlElement *node = doc->RootElement();
+	TiXmlElement *firstnode = node->FirstChild();
+	node = firstnode->NextSibling();
+	TiXmlElement *next = node->FirstChildElement();
+	printf("[%s]\n",next->FirstChild()->Value());
+
+	//doc.Print(stdout);
+	delete doc;
+	return 0;
+
+}

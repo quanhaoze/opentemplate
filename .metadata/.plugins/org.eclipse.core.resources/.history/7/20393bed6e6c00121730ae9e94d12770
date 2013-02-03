@@ -1,0 +1,6 @@
+#include "xmlfiletypedef.h"
+
+int main(int argc,char *argv[])
+{
+
+}

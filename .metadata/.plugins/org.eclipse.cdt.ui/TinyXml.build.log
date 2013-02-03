@@ -1,0 +1,6 @@
+10:34:45 **** Incremental Build of configuration Default for project TinyXml ****
+make all 
+make: Nothing to be done for `all'.
+
+10:34:45 Build Finished (took 77ms)
+

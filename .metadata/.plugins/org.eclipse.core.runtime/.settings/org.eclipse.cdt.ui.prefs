@@ -1,0 +1,17 @@
+content_assist_category_order=org.eclipse.mylyn.cdt.ui.parserProposalCategory\:0\u0000org.eclipse.cdt.ui.templateProposalCategory\:1\u0000org.eclipse.cdt.ui.parserProposalCategory\:2\u0000org.eclipse.cdt.ui.helpProposalCategory\:3\u0000org.eclipse.cdt.ui.textProposalCategory\:4\u0000
+content_assist_disabled_computers=
+content_assist_proposals_timeout=5000
+eclipse.preferences.version=1
+editor_folding_default_comments=true
+editor_folding_default_functions=true
+editor_folding_default_inactive=true
+editor_folding_default_macros=true
+editor_folding_default_methods=true
+editor_folding_default_structures=true
+editor_folding_preprocessor_enabled=true
+editor_folding_statements=true
+org.eclipse.cdt.ui.text.templates.custom=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+sourceHoverBackgroundColor=255,255,191
+spelling_locale_initialized=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

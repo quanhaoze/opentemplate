@@ -1,0 +1,7 @@
+13:22:30 **** Incremental Build of configuration Default for project BitSet ****
+make all 
+g++ -g  -o src/main.o -c src/main.cpp  -I ./include  -L ./liba
+g++ -g   -o bin/bitmain  src/bit.o src/main.o -I ./include -L ./liba 
+13:22:32 **** Incremental Build of configuration Default for project BitSet ****
+make all 
+make: Nothing to be done for `all'.

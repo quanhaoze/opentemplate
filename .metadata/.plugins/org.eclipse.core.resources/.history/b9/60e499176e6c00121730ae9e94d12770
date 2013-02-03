@@ -1,0 +1,29 @@
+/*
+ * xmlfiletypedef implement
+ *
+ */
+#include <string>
+#include <iostream>
+#include "xmlfiletypedef.h"
+#include "tinyxml.h"
+
+int CreatXmlInfo(std::string &str)
+{
+	//create Tixmldocument class pointer
+	TiXmlDocument *doc = new TiXmlDocument();
+
+	//null return false
+	if (!doc)
+		return false;
+
+	//creat declaration type statement
+	//version=1.0 encoding=utf8 _standalone=no
+	TiXmlDeclaration *pdeclaration = new TiXmlDeclaration("1.o","utf8","no");
+
+	//null return-value false
+	if (!pdeclaration)
+		return false;
+
+
+
+}

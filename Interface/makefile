@@ -1,0 +1,35 @@
+#
+#通用的makefile
+#负责工程编译
+
+BIN=./bin
+SRC=./src
+INCLUDE=./include
+LIBA=./liba
+
+#定义编译器
+CC=g++
+GCC=gcc
+
+#编译选项
+FLAGS=-g 
+
+%.o:%.c
+	$(GCC) $(FLAGS) -o $@ -c $<  -I $(INCLUDE)  -L $(LIBA)
+
+%.o:%.cpp
+	$(CC) $(FLAGS) -o $@ -c $<  -I $(INCLUDE)  -L $(LIBA)
+
+.PHONY:clean install  all
+.SUFFIXES: .h .hpp .cpp .c .pc
+
+all:$(BIN)/main
+
+$(BIN)/main: $(SRC)/StringHash.o $(SRC)/main.o 
+	$(CC) $(FLAGS) -o $@  $^ -I $(INCLUDE) -L $(LIBA)
+
+clean:
+#清楚临时文件
+	@-rm $(SRC)/*.o;
+	@-rm $(BIN)/main
+

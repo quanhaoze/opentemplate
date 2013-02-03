@@ -1,0 +1,47 @@
+/*
+ * xmlfiletypedef implement
+ *
+ */
+#include <string>
+#include <iostream>
+#include "xmlfiletypedef.h"
+#include "tinyxml.h"
+
+int CreatXmlInfo(const char *str)
+{
+	//create Tixmldocument class pointer
+	TiXmlDocument *doc = new TiXmlDocument();
+
+	//null return false
+	if (!doc)
+		return false;
+
+	//creat declaration type statement
+	//version=1.0 encoding=utf8 _standalone=no
+	TiXmlDeclaration *pdeclaration = new TiXmlDeclaration("1.0","utf8","no");
+
+	//null return-value false
+	if (!pdeclaration)
+		return false;
+
+	doc->LinkEndChild(pdeclaration);
+
+	//声称根节点
+	TiXmlElement *node = new TiXmlElement("App");
+
+	if (!node )
+		return false;
+
+	//doc->linkend
+	doc->LinkEndChild(node);
+
+	doc->SaveFile(str);
+
+	std::cout << str << "Create Success" << std::endl;
+
+	delete doc;
+	delete node;
+	delete pdeclaration;
+	return true;
+
+}

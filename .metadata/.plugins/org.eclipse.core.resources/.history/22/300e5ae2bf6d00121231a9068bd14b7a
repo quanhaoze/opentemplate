@@ -1,0 +1,106 @@
+/*
+ * bit.h implement
+ *
+ * Author:quanhaoze
+ * CreatTime:2013/02/03
+ *
+ * Rversion:V1.0.0
+ */
+
+#include <string.h>
+#include "bittypedef.h"
+#include "bit.h"
+
+int bit_get(const unsigned char *bit,int pos)
+{
+	//获取操作的缓冲区
+	int position = 0;
+
+	//掩码的大小
+	unsigned char mask = 0x80;
+
+	position = pos % BIT_TYPE_LEN;
+
+	for (int index = 0; index < position; index++)
+		mask >>= 1;
+
+	//返回状态的值
+	return ((bit[(int)pos / BIT_TYPE_LEN] & mask) == mask ? 1:0);
+}
+
+void bit_set(unsigned char *bit,int pos,int state)
+{
+	int position = pos % BIT_TYPE_LEN;
+	unsigned char  mask = 0x80;
+
+	for (int index = 0; index < position; index++)
+		mask >>= 1;
+
+	if (state)
+		bit[(int) pos / BIT_TYPE_LEN] = (bit[(int) pos / BIT_TYPE_LEN]) | mask;
+	else
+		bit[(int) pos / BIT_TYPE_LEN] = (bit[(int) pos / BIT_TYPE_LEN]) & (~mask);
+
+}
+
+void bit_xor(const unsigned char *bit1,const unsigned char *bit2,unsigned char *bitx,int size)
+{
+	int index = 0;
+
+	for (; index < size; index++)
+	{
+		if (bit_get(bit1,index) != bit_get(bit2,index))
+			bit_set(bitx,index,1);
+		else
+			bit_set(bitx,index,0);
+	}
+
+}
+
+void bit_rot_left(unsigned char *bitsx,int size,int count)
+{
+	int fbit,   //第一个位的状态
+	    lbit,   //左边的位的状态
+	    i,
+	    j;
+
+	if ( size <= 0)
+		return ;
+
+	for (j = 0; j < count; j++)
+	{
+		for (i = 0; i <= (int)((size -1) / 8); i++)
+		{
+			//get left bit-value
+			lbit = bit_get(&bitsx[i],0);
+
+			if (i == 0)
+				fbit = lbit;
+			else
+				bit_set(&bitsx[i - 1],7,lbit);
+
+			bitsx[i] = bitsx[i] << 1;
+		}
+
+		bit_set(bitsx,size -1,fbit);
+	}
+
+	return ;
+}
+
+void bit_rot_right(unsigned char *bits,int size,int count)
+{
+	int  fbit,  //fist bit-value
+	     rbit,  //right bit-value
+	      i,    //循环索引值
+	      j;    //轮转循环索引
+
+	if (size <= 0)
+		return ;
+
+	for (j = 0; j < count; j++)
+	{
+		for (i = 0; i <= (int)((size -1) / 8); i++)
+	}
+
+}

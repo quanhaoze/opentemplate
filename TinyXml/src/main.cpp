@@ -1,0 +1,8 @@
+#include "xmlfiletypedef.h"
+
+int main(int argc,char *argv[])
+{
+	bool result = false;
+	result = CreatXmlInfo("1.xml");
+	return 0;
+}
